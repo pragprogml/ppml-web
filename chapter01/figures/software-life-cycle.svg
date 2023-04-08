@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="601.02917"
+   height="440.57816"
+   viewBox="0 0 601.02915 440.57816"
+   version="1.1"
+   id="svg2052"
+   sodipodi:docname="software-life-cycle.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview30"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.3890838"
+     inkscape:cx="197.97222"
+     inkscape:cy="220.64903"
+     inkscape:window-width="2560"
+     inkscape:window-height="1414"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2052" />
+  <metadata
+     id="metadata2056">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs1932">
+    <marker
+       style="overflow:visible"
+       id="TriangleStart"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="8.324"
+       markerHeight="9.62312126"
+       viewBox="0 0 5.3244081 6.1553851"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleStart_Fnone_S-57595c"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="8.324"
+       markerHeight="9.62312126"
+       viewBox="0 0 5.3244081 6.1553851"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:#57595c;fill-rule:evenodd;stroke:#57595c;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1037" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Lend"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#57595c;fill-opacity:1;fill-rule:evenodd;stroke:#57595c;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path2270" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#57595c;stroke-width:1pt;stroke-opacity:1;fill:#57595c;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path2252" />
+    </marker>
+    <style
+       id="style1930">.a{fill:#619bd2;}.a,.b,.c,.d,.e,.f,.g,.h,.i,.j,.k,.l,.m{fill-rule:evenodd;}.b{fill:#6ecbf5;}.c{fill:#8fc0ee;}.d{fill:#274484;}.e{fill:#133582;}.f{fill:#5f91cb;}.g{fill:#41aad7;}.h{fill:#66a1d9;}.i{fill:#3179bd;}.j{fill:#0d2a69;}.k{fill:#051445;}.l{fill:#2767a9;}.m{fill:#fefefe;}.n,.o{fill:#fff;}.n,.p{font-size:21px;}.n,.o,.p,.r{font-family:SegoeUI-Semibold, Segoe UI;font-weight:600;}.o{font-size:22px;}.p{fill:#142c62;}.q{font-family:SegoeUI-Bold, Segoe UI;font-weight:700;}</style>
+  </defs>
+  <path
+     class="a"
+     d="M 148.12215,409.48243 C 54.400146,368.95233 1.6341461,296.76563 0.5331461,222.26239 H 193.98015 a 106.761,78.215436 0 0 0 50.847,64.50809 z"
+     id="path1934"
+     style="fill:none;stroke:#646464;stroke-width:1.88976378;stroke-opacity:0.50192374;fill-opacity:0.05;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     class="b"
+     d="m 152.95915,28.904447 c 88.622,-36.5578273 200.333,-39.167426 295.106,0.03077 l -96.7,122.714153 a 106.762,78.216169 0 0 0 -101.678,-0.007 z"
+     id="path1936"
+     style="fill:none;stroke:#646464;stroke-width:1.88976378;stroke-opacity:0.50192374;fill-opacity:0.05;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     class="c"
+     d="M 0.5231461,218.31869 A 300.5,220.15285 0 0 1 148.09315,31.060553 l 96.723,122.735407 a 106.99,78.383206 0 0 0 -50.847,64.52127 H 0.5241461 Z"
+     id="path1938"
+     style="fill:none;stroke:#646464;stroke-width:1.88976378;stroke-opacity:0.50192374;fill-opacity:0.05;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     class="d"
+     d="m 448.08815,411.6737 c -88.622,36.55783 -200.333,39.16743 -295.106,-0.0308 l 96.705,-122.71415 a 106.759,78.213971 0 0 0 101.678,0.007 z"
+     id="path1940"
+     style="fill:none;stroke:#646464;stroke-width:1.88976378;stroke-opacity:0.50192374;fill-opacity:0.05;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     class="e"
+     d="m 600.52215,222.26166 a 300.5,220.15285 0 0 1 -147.568,187.25813 l -96.724,-122.73613 a 106.988,78.381741 0 0 0 50.851,-64.522 z"
+     id="path1942"
+     style="fill:none;stroke:#646464;stroke-width:1.88976378;stroke-opacity:0.50192374;fill-opacity:0.05;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     class="f"
+     d="m 452.92515,31.096452 c 93.722,40.530103 146.489,112.716798 147.589,187.220778 h -193.447 a 106.762,78.216169 0 0 0 -50.847,-64.50882 z"
+     id="path1944"
+     style="fill:none;stroke:#646464;stroke-width:1.88976378;stroke-opacity:0.50192374;fill-opacity:0.05;stroke-miterlimit:4;stroke-dasharray:none" />
+  <text
+     class="n"
+     id="text2002"
+     x="254.95981"
+     y="70.025887"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
+       id="tspan2177"
+       x="254.95981"
+       y="70.025887"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Planning</tspan></text>
+  <text
+     class="n"
+     id="text2008"
+     x="447.61325"
+     y="150.63737"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
+       id="tspan2179"
+       x="447.61325"
+       y="150.63737"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Analysis</tspan></text>
+  <text
+     class="n"
+     id="text2014"
+     x="453.97021"
+     y="301.63635"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
+       id="tspan2181"
+       x="453.97021"
+       y="301.63635"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Design</tspan></text>
+  <text
+     class="n"
+     id="text2022"
+     x="219.31973"
+     y="382.49225"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
+       id="tspan2183"
+       x="219.31973"
+       y="382.49225"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Implementation</tspan></text>
+  <text
+     class="o"
+     id="text2028"
+     x="47.796547"
+     y="153.8533"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
+       id="tspan2189"
+       x="47.796547"
+       y="153.8533"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Maintenance</tspan></text>
+  <text
+     class="n"
+     id="text2034"
+     x="163.42955"
+     y="288.49286"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"><tspan
+       id="tspan2185"
+       x="112.76611"
+       y="288.49286"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle">Testing &amp;</tspan><tspan
+       id="tspan2187"
+       x="112.76611"
+       y="314.74286"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle">Integration</tspan></text>
+  <path
+     style="fill:none;fill-opacity:1;stroke:#57595c;stroke-width:1.88985003;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleStart_Fnone_S-57595c)"
+     id="path2245"
+     transform="matrix(0.99990873,0.01351074,0,1,0,0)"
+     d="M 200.95757,160.77345 A 124.91549,91.859291 0 0 1 369.21714,139.49715 124.91549,91.859291 0 0 1 409.1901,261.55674 124.91549,91.859291 0 0 1 246.20608,298.94225 124.91549,91.859291 0 0 1 184.72279,181.81673" />
+</svg>

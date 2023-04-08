@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="1496.7844"
+   height="1082.5153"
+   viewBox="0 0 1496.7845 1082.5153"
+   sodipodi:docname="pipeline-lifecycle.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview51"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.56535"
+     inkscape:cx="713.71717"
+     inkscape:cy="559.8302"
+     inkscape:window-width="2560"
+     inkscape:window-height="1414"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs6">
+    <marker
+       style="overflow:visible"
+       id="TriangleStart"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       markerWidth="3.3239999"
+       markerHeight="3.8427744"
+       viewBox="0 0 5.3244081 6.1553851"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleStart_Fnone_S-969696"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       markerWidth="3.3239999"
+       markerHeight="3.8427744"
+       viewBox="0 0 5.3244081 6.1553851"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:#969696;fill-rule:evenodd;stroke:#969696;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path862" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleStart_F-ffffff_S-000000"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       markerWidth="3.3239999"
+       markerHeight="3.8427744"
+       viewBox="0 0 5.3244081 6.1553851"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path859" />
+    </marker>
+  </defs>
+  <path
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:12;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleStart_F-ffffff_S-000000)"
+     id="path893"
+     d="M 600.23449,58.402121 A 486.37244,486.37244 0 0 1 1084.2295,487.88492 486.37244,486.37244 0 0 1 713.25698,1018.0604 486.37244,486.37244 0 0 1 143.93629,710.52075 486.37244,486.37244 0 0 1 383.9621,109.60954" />
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect1381-5-1"
+     width="291.664"
+     height="119.45394"
+     x="138.89401"
+     y="844.99286" />
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect1381-5-8"
+     width="291.664"
+     height="119.45394"
+     x="1.9999999"
+     y="635.16003" />
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect1381-5-4"
+     width="291.664"
+     height="119.45394"
+     x="1.9999999"
+     y="403.75464" />
+  <path
+     style="fill:none;stroke:#969696;stroke-width:12;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#TriangleStart_Fnone_S-969696)"
+     id="path893-3"
+     d="M 1082.0171,489.16843 A 274.28558,274.28467 0 0 1 1352.2011,713.19595 274.28558,274.28467 0 0 1 1180.8652,1019.5151 274.28558,274.28467 0 0 1 848.5599,906.54982 274.28558,274.28467 0 0 1 899.4118,559.27277" />
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3.99999;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect1381-5"
+     width="291.66403"
+     height="119.45394"
+     x="468.414"
+     y="1.9999951" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:0.95;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle"
+     x="612.68597"
+     y="52.506966"
+     id="text1227"><tspan
+       id="tspan2716"
+       x="612.68597"
+       y="52.506966">Project</tspan><tspan
+       id="tspan2718"
+       x="612.68597"
+       y="90.506958">Scope</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect1381-5-7"
+     width="291.664"
+     height="119.45394"
+     x="59.407013"
+     y="182.09657" />
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect1381-5-75"
+     width="291.664"
+     height="119.45394"
+     x="832.05701"
+     y="182.09657" />
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect1381-5-2"
+     width="291.664"
+     height="119.45394"
+     x="469.164"
+     y="961.06128" />
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect1381-5-89"
+     width="291.664"
+     height="119.45394"
+     x="934.23303"
+     y="435.2197" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:0.95;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle"
+     x="977.58899"
+     y="232.96355"
+     id="text1227-3"><tspan
+       id="tspan7647"
+       x="977.58899"
+       y="232.96355">Baseline</tspan><tspan
+       id="tspan7649"
+       x="977.58899"
+       y="270.96356">Implementation</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:0.95;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle"
+     x="1079.765"
+     y="484.58667"
+     id="text1227-3-0"><tspan
+       id="tspan9827"
+       x="1079.765"
+       y="484.58667">Data</tspan><tspan
+       id="tspan9829"
+       x="1079.765"
+       y="522.58667">Ingestion</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:0.95;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle"
+     x="615.29596"
+     y="1015.7883"
+     id="text1227-3-05"><tspan
+       id="tspan9901"
+       x="615.29596"
+       y="1015.7883">Validation &amp;</tspan><tspan
+       id="tspan9903"
+       x="615.29596"
+       y="1053.7882">Artefacts</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:0.95;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle"
+     x="283.586"
+     y="899.71985"
+     id="text1227-3-08"><tspan
+       id="tspan9944"
+       x="283.586"
+       y="899.71985">Deploy</tspan><tspan
+       id="tspan9946"
+       x="283.586"
+       y="937.71985">Models</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:0.95;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle"
+     x="146.77197"
+     y="709.12695"
+     id="text1227-3-6"><tspan
+       id="tspan10024"
+       x="146.77197"
+       y="709.12695">Inference</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:0.95;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle"
+     x="146.35199"
+     y="453.88162"
+     id="text1227-3-6-6"><tspan
+       id="tspan10142"
+       x="146.35199"
+       y="453.88162">Monitoring &amp;</tspan><tspan
+       id="tspan10144"
+       x="146.35199"
+       y="491.88159">Logging</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:0.95;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle"
+     x="204.05899"
+     y="236.46355"
+     id="text1227-3-6-8"><tspan
+       id="tspan590"
+       x="204.05899"
+       y="236.46355">Reporting &amp;</tspan><tspan
+       id="tspan592"
+       x="204.05899"
+       y="274.46356">Dashboards</tspan></text>
+  <rect
+     style="fill:#efefef;fill-opacity:1;stroke:#969696;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect1381-5-89-7"
+     width="291.664"
+     height="119.45394"
+     x="934.23291"
+     y="961.06128" />
+  <rect
+     style="fill:#efefef;fill-opacity:1;stroke:#969696;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect1381-5-89-2"
+     width="291.664"
+     height="119.45394"
+     x="668.17395"
+     y="695.93817" />
+  <rect
+     style="fill:#efefef;fill-opacity:1;stroke:#969696;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect1381-5-89-4"
+     width="291.664"
+     height="119.45394"
+     x="1203.1205"
+     y="695.93817" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:0.95;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle"
+     x="1348.6525"
+     y="745.68512"
+     id="text1227-3-0-0"><tspan
+       id="tspan9827-6"
+       x="1348.6525"
+       y="745.68512">Data</tspan><tspan
+       id="tspan9829-2"
+       x="1348.6525"
+       y="783.68512">Preparation</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:0.95;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle"
+     x="1078.9249"
+     y="1015.4283"
+     id="text1227-3-0-9"><tspan
+       id="tspan9827-9"
+       x="1078.9249"
+       y="1015.4283">Train</tspan><tspan
+       id="tspan9829-0"
+       x="1078.9249"
+       y="1053.4282">Models</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:0.95;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle"
+     x="812.94592"
+     y="750.66516"
+     id="text1227-3-0-8"><tspan
+       id="tspan9827-1"
+       x="812.94592"
+       y="750.66516">Evaluate</tspan><tspan
+       id="tspan9829-3"
+       x="812.94592"
+       y="788.66516">Models</tspan></text>
+</svg>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 Tools to Manage Pipelines in Production | The Pragmatic Programmer for Machine Learning</title>
+  <meta name="description" content="…" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 Tools to Manage Pipelines in Production | The Pragmatic Programmer for Machine Learning" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="…" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 Tools to Manage Pipelines in Production | The Pragmatic Programmer for Machine Learning" />
+  
+  <meta name="twitter:description" content="…" />
+  
+
+<meta name="author" content="Marco Scutari, Mauro Malvestio" />
+
+
+<meta name="date" content="2023-04-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="development-tools.html"/>
+<link rel="next" href="nlp.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "glf74rs5fz");
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> What Is This Book About?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#intro-ml"><i class="fa fa-check"></i><b>1.1</b> Machine Learning</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#intro-ds"><i class="fa fa-check"></i><b>1.2</b> Data Science</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#intro-sweng"><i class="fa fa-check"></i><b>1.3</b> Software Engineering</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#intro-together"><i class="fa fa-check"></i><b>1.4</b> How Do They Go Together?</a></li>
+</ul></li>
+<li class="part"><span><b>I Foundations of Scientific Computing</b></span></li>
+<li class="chapter" data-level="2" data-path="hardware.html"><a href="hardware.html"><i class="fa fa-check"></i><b>2</b> Hardware Architectures</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="hardware.html"><a href="hardware.html#hardware-types"><i class="fa fa-check"></i><b>2.1</b> Types of Hardware</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="hardware.html"><a href="hardware.html#hardware-compute"><i class="fa fa-check"></i><b>2.1.1</b> Compute</a></li>
+<li class="chapter" data-level="2.1.2" data-path="hardware.html"><a href="hardware.html#hardware-memory"><i class="fa fa-check"></i><b>2.1.2</b> Memory</a></li>
+<li class="chapter" data-level="2.1.3" data-path="hardware.html"><a href="hardware.html#hardware-connections"><i class="fa fa-check"></i><b>2.1.3</b> Connections</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="hardware.html"><a href="hardware.html#hardware-using"><i class="fa fa-check"></i><b>2.2</b> Making Hardware Live Up to Expectations</a></li>
+<li class="chapter" data-level="2.3" data-path="hardware.html"><a href="hardware.html#hardware-cloud"><i class="fa fa-check"></i><b>2.3</b> Local and Remote Hardware</a></li>
+<li class="chapter" data-level="2.4" data-path="hardware.html"><a href="hardware.html#hardware-choice"><i class="fa fa-check"></i><b>2.4</b> Choosing the Right Hardware for the Job</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="types-structures.html"><a href="types-structures.html"><i class="fa fa-check"></i><b>3</b> Variable Types and Data Structures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="types-structures.html"><a href="types-structures.html#variable-types"><i class="fa fa-check"></i><b>3.1</b> Variable Types</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="types-structures.html"><a href="types-structures.html#integers"><i class="fa fa-check"></i><b>3.1.1</b> Integers</a></li>
+<li class="chapter" data-level="3.1.2" data-path="types-structures.html"><a href="types-structures.html#floating-point"><i class="fa fa-check"></i><b>3.1.2</b> Floating Point</a></li>
+<li class="chapter" data-level="3.1.3" data-path="types-structures.html"><a href="types-structures.html#string-types"><i class="fa fa-check"></i><b>3.1.3</b> Strings</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="types-structures.html"><a href="types-structures.html#data-structures"><i class="fa fa-check"></i><b>3.2</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="types-structures.html"><a href="types-structures.html#vectors-lists"><i class="fa fa-check"></i><b>3.2.1</b> Vectors and Lists</a></li>
+<li class="chapter" data-level="3.2.2" data-path="types-structures.html"><a href="types-structures.html#dataframes"><i class="fa fa-check"></i><b>3.2.2</b> Representing Data with Data Frames</a></li>
+<li class="chapter" data-level="3.2.3" data-path="types-structures.html"><a href="types-structures.html#matrices"><i class="fa fa-check"></i><b>3.2.3</b> Dense and Sparse Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="types-structures.html"><a href="types-structures.html#right-variables"><i class="fa fa-check"></i><b>3.3</b> Choosing the Right Variable Types for the Job</a></li>
+<li class="chapter" data-level="3.4" data-path="types-structures.html"><a href="types-structures.html#right-data-structures"><i class="fa fa-check"></i><b>3.4</b> Choosing the Right Data Structures for the Job</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="algorithms.html"><a href="algorithms.html"><i class="fa fa-check"></i><b>4</b> Analysis of Algorithms</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="algorithms.html"><a href="algorithms.html#pseudocode"><i class="fa fa-check"></i><b>4.1</b> Writing Pseudocode</a></li>
+<li class="chapter" data-level="4.2" data-path="algorithms.html"><a href="algorithms.html#bigO-intro"><i class="fa fa-check"></i><b>4.2</b> Computational Complexity and Big-<span class="math inline">\(O\)</span> Notation</a></li>
+<li class="chapter" data-level="4.3" data-path="algorithms.html"><a href="algorithms.html#bigO-benchmark"><i class="fa fa-check"></i><b>4.3</b> Big-<span class="math inline">\(O\)</span> Notation and Benchmarking</a></li>
+<li class="chapter" data-level="4.4" data-path="algorithms.html"><a href="algorithms.html#bigO-ml"><i class="fa fa-check"></i><b>4.4</b> Algorithm Analysis for Machine Learning</a></li>
+<li class="chapter" data-level="4.5" data-path="algorithms.html"><a href="algorithms.html#bigO-examples"><i class="fa fa-check"></i><b>4.5</b> Some Examples of Algorithm Analysis</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="algorithms.html"><a href="algorithms.html#bigO-lm"><i class="fa fa-check"></i><b>4.5.1</b> Estimating Linear Regression Models</a></li>
+<li class="chapter" data-level="4.5.2" data-path="algorithms.html"><a href="algorithms.html#bigO-sparsem"><i class="fa fa-check"></i><b>4.5.2</b> Sparse Matrices Representation</a></li>
+<li class="chapter" data-level="4.5.3" data-path="algorithms.html"><a href="algorithms.html#bigO-dags"><i class="fa fa-check"></i><b>4.5.3</b> Uniform Simulations of Directed Acyclic Graphs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="algorithms.html"><a href="algorithms.html#bigO-performance"><i class="fa fa-check"></i><b>4.6</b> Big-<span class="math inline">\(O\)</span> Notation and Real-World Performance</a></li>
+</ul></li>
+<li class="part"><span><b>II Best Practices for Machine Learning Pipelines</b></span></li>
+<li class="chapter" data-level="5" data-path="design-code.html"><a href="design-code.html"><i class="fa fa-check"></i><b>5</b> Designing and Structuring Pipelines</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="design-code.html"><a href="design-code.html#data-as-code"><i class="fa fa-check"></i><b>5.1</b> Data as Code</a></li>
+<li class="chapter" data-level="5.2" data-path="design-code.html"><a href="design-code.html#technical-debt"><i class="fa fa-check"></i><b>5.2</b> Technical Debt</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="design-code.html"><a href="design-code.html#data-debt"><i class="fa fa-check"></i><b>5.2.1</b> At the Data Level</a></li>
+<li class="chapter" data-level="5.2.2" data-path="design-code.html"><a href="design-code.html#model-debt"><i class="fa fa-check"></i><b>5.2.2</b> At the Model Level</a></li>
+<li class="chapter" data-level="5.2.3" data-path="design-code.html"><a href="design-code.html#architecture-debt"><i class="fa fa-check"></i><b>5.2.3</b> At the Architecture (Design) Level</a></li>
+<li class="chapter" data-level="5.2.4" data-path="design-code.html"><a href="design-code.html#code-debt"><i class="fa fa-check"></i><b>5.2.4</b> At the Code Level</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="design-code.html"><a href="design-code.html#processing-pipeline"><i class="fa fa-check"></i><b>5.3</b> Machine Learning Pipeline</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="design-code.html"><a href="design-code.html#scoping-pipeline"><i class="fa fa-check"></i><b>5.3.1</b> Project Scoping</a></li>
+<li class="chapter" data-level="5.3.2" data-path="design-code.html"><a href="design-code.html#baseline-pipeline"><i class="fa fa-check"></i><b>5.3.2</b> Producing a Baseline Implementation</a></li>
+<li class="chapter" data-level="5.3.3" data-path="design-code.html"><a href="design-code.html#data-pipeline"><i class="fa fa-check"></i><b>5.3.3</b> Data Ingestion and Preparation</a></li>
+<li class="chapter" data-level="5.3.4" data-path="design-code.html"><a href="design-code.html#model-pipeline"><i class="fa fa-check"></i><b>5.3.4</b> Model Training, Evaluation and Validation</a></li>
+<li class="chapter" data-level="5.3.5" data-path="design-code.html"><a href="design-code.html#production-pipeline"><i class="fa fa-check"></i><b>5.3.5</b> Deployment, Serving and Inference</a></li>
+<li class="chapter" data-level="5.3.6" data-path="design-code.html"><a href="design-code.html#monitoring-pipeline"><i class="fa fa-check"></i><b>5.3.6</b> Monitoring, Logging and Reporting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="writing-code.html"><a href="writing-code.html"><i class="fa fa-check"></i><b>6</b> Writing Machine Learning Code</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="writing-code.html"><a href="writing-code.html#programming-language"><i class="fa fa-check"></i><b>6.1</b> Choosing Languages and Libraries</a></li>
+<li class="chapter" data-level="6.2" data-path="writing-code.html"><a href="writing-code.html#naming"><i class="fa fa-check"></i><b>6.2</b> Naming Things</a></li>
+<li class="chapter" data-level="6.3" data-path="writing-code.html"><a href="writing-code.html#coding-standards"><i class="fa fa-check"></i><b>6.3</b> Coding Styles and Coding Standards</a></li>
+<li class="chapter" data-level="6.4" data-path="writing-code.html"><a href="writing-code.html#filesystem-structure"><i class="fa fa-check"></i><b>6.4</b> Filesystem Structure</a></li>
+<li class="chapter" data-level="6.5" data-path="writing-code.html"><a href="writing-code.html#versioning"><i class="fa fa-check"></i><b>6.5</b> Effective Versioning</a></li>
+<li class="chapter" data-level="6.6" data-path="writing-code.html"><a href="writing-code.html#code-review"><i class="fa fa-check"></i><b>6.6</b> Code Review</a></li>
+<li class="chapter" data-level="6.7" data-path="writing-code.html"><a href="writing-code.html#refactoring"><i class="fa fa-check"></i><b>6.7</b> Refactoring</a></li>
+<li class="chapter" data-level="6.8" data-path="writing-code.html"><a href="writing-code.html#reworking"><i class="fa fa-check"></i><b>6.8</b> Reworking Academic Code: An Example</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="deploying-code.html"><a href="deploying-code.html"><i class="fa fa-check"></i><b>7</b> Packaging and Deploying Pipelines</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="deploying-code.html"><a href="deploying-code.html#deployment-prep"><i class="fa fa-check"></i><b>7.1</b> Model Packaging</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="deploying-code.html"><a href="deploying-code.html#standalone-packaging"><i class="fa fa-check"></i><b>7.1.1</b> Standalone Packaging</a></li>
+<li class="chapter" data-level="7.1.2" data-path="deploying-code.html"><a href="deploying-code.html#distribution-packaging"><i class="fa fa-check"></i><b>7.1.2</b> Programming Language Package Managers</a></li>
+<li class="chapter" data-level="7.1.3" data-path="deploying-code.html"><a href="deploying-code.html#vm-packaging"><i class="fa fa-check"></i><b>7.1.3</b> Virtual Machines</a></li>
+<li class="chapter" data-level="7.1.4" data-path="deploying-code.html"><a href="deploying-code.html#container-packaging"><i class="fa fa-check"></i><b>7.1.4</b> Containers</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="deploying-code.html"><a href="deploying-code.html#deployment-strategies"><i class="fa fa-check"></i><b>7.2</b> Model Deployment: Strategies</a></li>
+<li class="chapter" data-level="7.3" data-path="deploying-code.html"><a href="deploying-code.html#deployment-process"><i class="fa fa-check"></i><b>7.3</b> Model Deployment: Infrastructure</a></li>
+<li class="chapter" data-level="7.4" data-path="deploying-code.html"><a href="deploying-code.html#deployment-monitoring"><i class="fa fa-check"></i><b>7.4</b> Model Deployment: Monitoring and Logging</a></li>
+<li class="chapter" data-level="7.5" data-path="deploying-code.html"><a href="deploying-code.html#deployment-fails"><i class="fa fa-check"></i><b>7.5</b> What Can Possibly Go Wrong?</a></li>
+<li class="chapter" data-level="7.6" data-path="deploying-code.html"><a href="deploying-code.html#rollback"><i class="fa fa-check"></i><b>7.6</b> Rolling Back</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="documenting-code.html"><a href="documenting-code.html"><i class="fa fa-check"></i><b>8</b> Documenting Pipelines</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="documenting-code.html"><a href="documenting-code.html#comments"><i class="fa fa-check"></i><b>8.1</b> Comments</a></li>
+<li class="chapter" data-level="8.2" data-path="documenting-code.html"><a href="documenting-code.html#apidocs"><i class="fa fa-check"></i><b>8.2</b> Documenting Public Interfaces</a></li>
+<li class="chapter" data-level="8.3" data-path="documenting-code.html"><a href="documenting-code.html#designdocs"><i class="fa fa-check"></i><b>8.3</b> Documenting Architecture and Design</a></li>
+<li class="chapter" data-level="8.4" data-path="documenting-code.html"><a href="documenting-code.html#domaindocs"><i class="fa fa-check"></i><b>8.4</b> Documenting Algorithms and Business Cases</a></li>
+<li class="chapter" data-level="8.5" data-path="documenting-code.html"><a href="documenting-code.html#usecases"><i class="fa fa-check"></i><b>8.5</b> Illustrating Practical Use Cases</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html"><i class="fa fa-check"></i><b>9</b> Troubleshooting and Testing Pipelines</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#data-problems"><i class="fa fa-check"></i><b>9.1</b> Data Are the Problem</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#troubleshooting-large-data"><i class="fa fa-check"></i><b>9.1.1</b> Large Data</a></li>
+<li class="chapter" data-level="9.1.2" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#troubleshooting-heterogeneous-data"><i class="fa fa-check"></i><b>9.1.2</b> Heterogeneous Data</a></li>
+<li class="chapter" data-level="9.1.3" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#troubleshooting-dynamic-data"><i class="fa fa-check"></i><b>9.1.3</b> Dynamic Data</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#model-problems"><i class="fa fa-check"></i><b>9.2</b> Models Are the Problem</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#troubleshooting-large-models"><i class="fa fa-check"></i><b>9.2.1</b> Large Models</a></li>
+<li class="chapter" data-level="9.2.2" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#troubleshooting-black-boxes"><i class="fa fa-check"></i><b>9.2.2</b> Black-Box Models</a></li>
+<li class="chapter" data-level="9.2.3" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#troubleshooting-costly-models"><i class="fa fa-check"></i><b>9.2.3</b> Costly Models</a></li>
+<li class="chapter" data-level="9.2.4" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#troubleshooting-pipelines"><i class="fa fa-check"></i><b>9.2.4</b> Many Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#signs-of-trouble"><i class="fa fa-check"></i><b>9.3</b> Common Signs That Something Is Up</a></li>
+<li class="chapter" data-level="9.4" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#testing"><i class="fa fa-check"></i><b>9.4</b> Tests Are the Solution</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#testing-goals"><i class="fa fa-check"></i><b>9.4.1</b> What Do We Want to Achieve?</a></li>
+<li class="chapter" data-level="9.4.2" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#testing-what"><i class="fa fa-check"></i><b>9.4.2</b> What Should We Test?</a></li>
+<li class="chapter" data-level="9.4.3" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#offline-vs-online"><i class="fa fa-check"></i><b>9.4.3</b> Offline and Online Data</a></li>
+<li class="chapter" data-level="9.4.4" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#local-vs-global"><i class="fa fa-check"></i><b>9.4.4</b> Testing Local and Testing Global</a></li>
+<li class="chapter" data-level="9.4.5" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#conceptual-vs-implementation"><i class="fa fa-check"></i><b>9.4.5</b> Conceptual and Implementation Errors</a></li>
+<li class="chapter" data-level="9.4.6" data-path="troubleshooting-code.html"><a href="troubleshooting-code.html#test-coverage"><i class="fa fa-check"></i><b>9.4.6</b> Code Coverage and Test Prioritisation</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Tools and Technologies</b></span></li>
+<li class="chapter" data-level="10" data-path="development-tools.html"><a href="development-tools.html"><i class="fa fa-check"></i><b>10</b> Tools for Developing Pipelines</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="development-tools.html"><a href="development-tools.html#exploration-experiment-tracking"><i class="fa fa-check"></i><b>10.1</b> Data Exploration and Experiment Tracking</a></li>
+<li class="chapter" data-level="10.2" data-path="development-tools.html"><a href="development-tools.html#code-development"><i class="fa fa-check"></i><b>10.2</b> Code Development</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="development-tools.html"><a href="development-tools.html#editors"><i class="fa fa-check"></i><b>10.2.1</b> Code Editors and IDEs</a></li>
+<li class="chapter" data-level="10.2.2" data-path="development-tools.html"><a href="development-tools.html#notebooks"><i class="fa fa-check"></i><b>10.2.2</b> Notebooks</a></li>
+<li class="chapter" data-level="10.2.3" data-path="development-tools.html"><a href="development-tools.html#accessing-documentation"><i class="fa fa-check"></i><b>10.2.3</b> Accessing Data and Documentation</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="development-tools.html"><a href="development-tools.html#build-test-doc-tools"><i class="fa fa-check"></i><b>10.3</b> Build, Test and Documentation Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="production-tools.html"><a href="production-tools.html"><i class="fa fa-check"></i><b>11</b> Tools to Manage Pipelines in Production</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="production-tools.html"><a href="production-tools.html#production-infra"><i class="fa fa-check"></i><b>11.1</b> Infrastructure Management</a></li>
+<li class="chapter" data-level="11.2" data-path="production-tools.html"><a href="production-tools.html#production-software"><i class="fa fa-check"></i><b>11.2</b> Machine Learning Software Management</a></li>
+<li class="chapter" data-level="11.3" data-path="production-tools.html"><a href="production-tools.html#production-dashboard"><i class="fa fa-check"></i><b>11.3</b> Dashboards, Visualisation and Reporting</a></li>
+</ul></li>
+<li class="part"><span><b>IV A Case Study</b></span></li>
+<li class="chapter" data-level="12" data-path="nlp.html"><a href="nlp.html"><i class="fa fa-check"></i><b>12</b> Recommending Recommendations: A Recommender System Using Natural Language Understanding</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="nlp.html"><a href="nlp.html#nlp-domain"><i class="fa fa-check"></i><b>12.1</b> The Domain Problem</a></li>
+<li class="chapter" data-level="12.2" data-path="nlp.html"><a href="nlp.html#nlp-model"><i class="fa fa-check"></i><b>12.2</b> The Machine Learning Model</a></li>
+<li class="chapter" data-level="12.3" data-path="nlp.html"><a href="nlp.html#nlp-infra"><i class="fa fa-check"></i><b>12.3</b> The Infrastructure</a></li>
+<li class="chapter" data-level="12.4" data-path="nlp.html"><a href="nlp.html#nlp-architecture"><i class="fa fa-check"></i><b>12.4</b> The Architecture of the Pipeline</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="nlp.html"><a href="nlp.html#nlp-ingestion-preparation"><i class="fa fa-check"></i><b>12.4.1</b> Data Ingestion and Data Preparation</a></li>
+<li class="chapter" data-level="12.4.2" data-path="nlp.html"><a href="nlp.html#nlp-tracking-with-dvc"><i class="fa fa-check"></i><b>12.4.2</b> Data Tracking and Versioning</a></li>
+<li class="chapter" data-level="12.4.3" data-path="nlp.html"><a href="nlp.html#nlp-training-exp-tracking"><i class="fa fa-check"></i><b>12.4.3</b> Training and Experiment Tracking</a></li>
+<li class="chapter" data-level="12.4.4" data-path="nlp.html"><a href="nlp.html#nlp-model-packaging"><i class="fa fa-check"></i><b>12.4.4</b> Model Packaging</a></li>
+<li class="chapter" data-level="12.4.5" data-path="nlp.html"><a href="nlp.html#nlp-deployment-inference"><i class="fa fa-check"></i><b>12.4.5</b> Deployment and Inference</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Pragmatic Programmer for Machine Learning</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="production-tools" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Tools to Manage Pipelines in Production<a href="production-tools.html#production-tools" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The production environments of machine learning pipe-lines often have more moving parts than those of traditional
+software, and the MLOps software to manage them is a broad and fast-moving field with many platforms, projects and
+tools. The underlying infrastructure may be more complex (Section <a href="production-tools.html#production-infra">11.1</a>), and the combination of data,
+code and models that makes up the pipeline is certainly more heterogeneous (Section <a href="production-tools.html#production-software">11.2</a>). In
+addition to the tools and technologies we need to manage them, we also discuss those that we may use to complement
+pipelines with the dashboards and reporting capabilities that are common in data science (Section
+<a href="production-tools.html#production-dashboard">11.3</a>).</p>
+<div id="production-infra" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Infrastructure Management<a href="production-tools.html#production-infra" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Successfully running a machine learning application in production goes beyond just implementing a pipeline: it involves
+managing different local and remote compute systems and integrating different pieces of software that communicate with
+each other through various APIs. Confusingly enough, the literature often refers to both as “systems”, meaning
+anything that requires configuration, takes some inputs and produces some outputs in response. With such an abstract
+definition, compute systems, the GitHub organisation that hosts our code, the Amazon AWS EC2 instances that run part of
+it in the cloud and the Kubernetes cluster than manages the resources of our local systems are all systems. Considering
+the prominent role hardware plays in a machine learning application (Chapter <a href="hardware.html#hardware">2</a>), we find this definition
+unhelpful because it is too abstract to reason about the architecture and the performance of the application itself
+(Chapter <a href="design-code.html#design-code">5</a>). The same goes for the even-more-abstracted view that “everything is just an API”.</p>
+<p>Managing the compute systems and the software in a real-world pipeline either manually or with a few simple scripts
+(which would qualify as glue code, Section <a href="design-code.html#architecture-debt">5.2.3</a>) is often too burdensome: there are too many of
+them, they follow different conventions (because they are produced by different vendors), they are not backward
+compatible and their configuration files use different languages and formats. Configuration management is the only
+possible approach to keep this complexity under control and to ensure that the pipeline is reproducible and auditable.</p>
+<p>
+One of the most widely-used tools for this task is Terraform <span class="citation">(HashiCorp <a href="#ref-terraform" role="doc-biblioref">2022</a><a href="#ref-terraform" role="doc-biblioref">b</a>)</span>, which defines itself as a tool to achieve
+“infrastructure as code”. Terraform is essentially an abstraction layer for a wide range of services
+<span class="citation">(HashiCorp <a href="#ref-terraform-registry" role="doc-biblioref">2022</a><a href="#ref-terraform-registry" role="doc-biblioref">c</a>)</span> and platforms including Amazon AWS, Microsoft Azure, GitHub, GitLab and Airflow. Each platform is
+exposed as a service “provider” that communicates through APIs that we control, effectively decoupling our
+infrastructure from the APIs of the original service. Terraform takes care of initialising resources in the original
+service and of configuring them. For instance, we can use it to create remote resources such as an EC2 instance on
+Amazon AWS, an object storage on Azure or a VM on a local vSphere <span class="citation">(VmWare <a href="#ref-vmware-vsphere" role="doc-biblioref">2022</a>)</span>. However, it does not handle the
+installation or the configuration of operating systems and software packages.</p>
+<p>
+
+Cloud instances, VMs and development machines based on Vagrant <span class="citation">(HashiCorp <a href="#ref-vagrant" role="doc-biblioref">2022</a><a href="#ref-vagrant" role="doc-biblioref">d</a>)</span> and Packer <span class="citation">(HashiCorp <a href="#ref-packer" role="doc-biblioref">2022</a><a href="#ref-packer" role="doc-biblioref">a</a>)</span> can be installed and
+configured using specialised tools such as Ansible <span class="citation">(Ansible Project <a href="#ref-ansible" role="doc-biblioref">2022</a>)</span>, Puppet <span class="citation">(Puppet <a href="#ref-puppet" role="doc-biblioref">2022</a>)</span> and Chef <span class="citation">(Progress Software <a href="#ref-chef" role="doc-biblioref">2022</a>)</span>. All three tools
+provide a complete solution to configuration management: we can define all resources and their configurations as code
+and store that code in a version control system. They also have modules for testing the configuration management code,
+for validating changes before applying them to a specific target environment, and for identifying manual modifications
+or tampering of the configuration files. As a result, they are convenient to integrate and automate in a CI/CD pipeline.
+Furthermore, Ansible, Puppet and Chef can all be invoked on instances and VMs created by Terraform on their first boot
+by software like cloud-init <span class="citation">(Canonical <a href="#ref-cloud-init" role="doc-biblioref">2022</a><a href="#ref-cloud-init" role="doc-biblioref">a</a>)</span>. However, they have different learning curves and they require different
+technical skills to operate. Ansible is written in Python, uses YAML declarative configuration files and has an
+<em>agentless</em> architecture (that is, it can be run without installing anything on the instances we want to configure).
+Puppet and Chef use Ruby-based domain-specific languages and have a <em>master-slave</em> architecture (that is, we install
+“agents” on the instances to configure them).
+
+</p>
+<p>
+
+As for containers, the de facto standard management tool is Kubernetes <span class="citation">(The Kubernetes Authors <a href="#ref-kubernetes" role="doc-biblioref">2022</a><a href="#ref-kubernetes" role="doc-biblioref">a</a>)</span>, an open-source orchestration
+system originally developed by Google and now maintained by the Cloud Native Computing Foundation (CNCF). Kubeflow
+<span class="citation">(The Kubeflow Authors <a href="#ref-kubeflow" role="doc-biblioref">2022</a>)</span> extends Kubernetes by integrating it with popular machine learning frameworks like Tensorflow, notebooks
+like Jupyter and data pipelines like Pachyderm: the result is an integrated platform specifically geared towards
+managing, developing, deploying and scaling machine learning pipelines. Kubeflow can be deployed on managed Kubernetes
+services like Amazon EKS <span class="citation">(Amazon Web Services <a href="#ref-eks" role="doc-biblioref">2022</a><a href="#ref-eks" role="doc-biblioref">a</a>)</span>, Azure AKS <span class="citation">(Microsoft <a href="#ref-aks" role="doc-biblioref">2022</a><a href="#ref-aks" role="doc-biblioref">b</a>)</span> or Google Kubernetes Engine <span class="citation">(Google <a href="#ref-gke" role="doc-biblioref">2022</a><a href="#ref-gke" role="doc-biblioref">c</a>)</span> as well as on local Kubernetes
+clusters. The latter, which are admittedly more complex to run, can be set up with CNCF-certified open-source solutions
+like the Kubernetes Fury Distribution <span class="citation">(SIGHUP <a href="#ref-kfd" role="doc-biblioref">2022</a>)</span> and Typhoon <span class="citation">(Poseidon Laboratories <a href="#ref-typhoon" role="doc-biblioref">2022</a>)</span>. Both are based on Terraform and Ansible and
+integrate with other CNCF components like software-defined networking, monitoring and logging (Section
+<a href="design-code.html#monitoring-pipeline">5.3.6</a>) to facilitate the interoperability between cloud and local deployments.
+
+</p>
+</div>
+<div id="production-software" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Machine Learning Software Management<a href="production-tools.html#production-software" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>
+Machine learning applications can be designed, tested, maintained and delivered in production using integrated MLOps
+platforms that blend tooling and practices from DevOps (Section <a href="design-code.html#processing-pipeline">5.3</a>) with data processing
+(Section <a href="design-code.html#data-pipeline">5.3.3</a>), model training and serving (Sections <a href="design-code.html#model-pipeline">5.3.4</a>, <a href="design-code.html#production-pipeline">5.3.5</a>
+and <a href="deploying-code.html#deployment-strategies">7.2</a>). This is a very recent trend at the time of this writing, so the label “MLOps
+platform” (or “Machine Learning Platform”) has been attached to quite a variety of tools. At one end of the spectrum, we
+have online platforms like AWS Sagemaker <span class="citation">(Amazon <a href="#ref-sagemaker" role="doc-biblioref">2022</a><a href="#ref-sagemaker" role="doc-biblioref">d</a>)</span>, Vertex AI <span class="citation">(Google <a href="#ref-vertex" role="doc-biblioref">2022</a><a href="#ref-vertex" role="doc-biblioref">f</a>)</span>, Tensorflow Extended <span class="citation">(TensorFlow <a href="#ref-tfx" role="doc-biblioref">2022</a><a href="#ref-tfx" role="doc-biblioref">d</a>)</span>, Databricks
+<span class="citation">(Databricks <a href="#ref-databricks" role="doc-biblioref">2022</a>)</span> and Neptune <span class="citation">(Neptune Labs <a href="#ref-neptune" role="doc-biblioref">2022</a>)</span>. At the other, we have more lightweight solutions like Airflow, MLflow and DVC
+that are built on top of a collection of smaller open-source tools that are not specific to machine learning applications.
+On top of that, we have established CI/CD platforms such as GitLab that are working on MLOps features <span class="citation">(GitLab <a href="#ref-gitlab-mlops" role="doc-biblioref">2022</a><a href="#ref-gitlab-mlops" role="doc-biblioref">c</a>)</span>
+which overlap with those of the platforms above. We expect it will take a few years before MLOps platforms
+consolidate into a small number of clear categories. In the meantime, we are choosing between tools that are not mature
+and have different, unclear trade-offs: there certainly is no one-size-fits-all solution at the moment! However,
+we can safely mention one trade-off: integrated platforms are limiting because they are often opinionated (they
+make it difficult to support configurations and workflows other than those envisaged by the authors) and because they
+are opaque (their components are not visible from the outside). Adopting them early in the life of the pipeline may
+limit our ability to change its architecture at a later time, may prevent us from exploring different configurations to
+explore their trade-offs, and may limit our ability to develop software engineering skills. In contrast, manually
+integrating smaller open-source tools gives us more freedom but requires more work and some level of software
+engineering skills up front.
+</p>
+<p>
+Solutions based on Kubernetes such as Kubeflow and Polyaxon <span class="citation">(Polyaxon <a href="#ref-polyaxon" role="doc-biblioref">2022</a>)</span> integrate and compose different tools, including
+Jupyter notebooks; model training (on both CPUs or GPUs) and experiment tracking for TensorFlow and other frameworks;
+and model serving with different solutions such as TensorFlow Serving <span class="citation">(TensorFlow <a href="#ref-tf-serving" role="doc-biblioref">2022</a><a href="#ref-tf-serving" role="doc-biblioref">b</a>)</span>, SeldonCore <span class="citation">(Seldon Technologies <a href="#ref-seldon-core" role="doc-biblioref">2022</a>)</span> and
+Kserve <span class="citation">(The KServe Authors <a href="#ref-kserve" role="doc-biblioref">2022</a>)</span>. Kubeflow focuses on managing machine learning workflows end-to-end, while Polyaxon complements it by
+providing distributed training, hyperparameter tuning and parallel task execution. Polyaxon can also schedule and manage
+Kubeflow operators and track metrics, outputs, models and resource usage to compare experiments. If a solution like
+Kubeflow is over-complicated for managing our pipeline, we can also consider replacing it with Argo Workflow
+<span class="citation">(Argo Project <a href="#ref-argo-workflow" role="doc-biblioref">2022</a>)</span>, a simpler orchestrator that can run parallel jobs on a Kubernetes cluster.</p>
+<p>The architecture of Kubeflow builds on the same key ideas as Kubernetes, in particular operators and namespaces. In
+fact, each machine learning library that is supported by Kubeflow (TensorFlow <span class="citation">(TensorFlow <a href="#ref-tensorflow" role="doc-biblioref">2021</a><a href="#ref-tensorflow" role="doc-biblioref">a</a>)</span>, PyTorch <span class="citation">(Paszke et al. <a href="#ref-pytorch" role="doc-biblioref">2019</a>)</span>, etc.)
+is encapsulated in a Kubernetes operator that can run local and distributed jobs. Pipelines are executed inside
+separate namespaces: each user can leverage the Kubernetes namespace isolation to prevent others from accessing
+notebooks, models or inference endpoints without proper authorisation (Section <a href="design-code.html#model-debt">5.2.2</a>).</p>
+<p>
+Seldon core <span class="citation">(Seldon Technologies <a href="#ref-seldon-core" role="doc-biblioref">2022</a>)</span> and KServe <span class="citation">(The KServe Authors <a href="#ref-kserve" role="doc-biblioref">2022</a>)</span> are specialised MLOps frameworks to package, deploy, monitor and manage
+machine learning models as custom resources on Kubernetes <span class="citation">(The Kubernetes Authors <a href="#ref-kubernetes" role="doc-biblioref">2022</a><a href="#ref-kubernetes" role="doc-biblioref">a</a>)</span>. Both encapsulate models stored in binary
+artefacts or code wrappers into containers that expose the models’ capabilities via REST/gRPC APIs with auto-generated
+OpenAPI specification files. Furthermore, both integrate with Prometheus <span class="citation">(Prometheus Authors and The Linux Foundation <a href="#ref-prometheus" role="doc-biblioref">2022</a>)</span> and Grafana <span class="citation">(GrafanaLabs <a href="#ref-grafana" role="doc-biblioref">2022</a>)</span> (for
+monitoring metrics), with Elasticsearch <span class="citation">(Elasticsearch <a href="#ref-elastic" role="doc-biblioref">2022</a>)</span> or Grafana Loki <span class="citation">(Grafana Labs <a href="#ref-loki" role="doc-biblioref">2022</a>)</span> (for logging), and with other tools (for
+features like detecting data drift and performing progressive deployments, which we discussed in Section
+<a href="design-code.html#data-debt">5.2.1</a> and <a href="deploying-code.html#deployment-strategies">7.2</a>). Two other options with a similar architecture are BentoML <span class="citation">(BentoML <a href="#ref-bentoml" role="doc-biblioref">2022</a>)</span>
+and MLEM <span class="citation">(Iterative <a href="#ref-mlem" role="doc-biblioref">2022</a><a href="#ref-mlem" role="doc-biblioref">d</a>)</span>. The former is a Python framework with a simple object-oriented interface for packaging models into
+containers and creating HTTP(S) services. The latter, which is from the same authors as DVC, stores model metadata
+as plain text files versioned in a Git repo, which becomes the single source of truth.</p>
+<p>Tensorflow Extended <span class="citation">(TensorFlow <a href="#ref-tfx" role="doc-biblioref">2022</a><a href="#ref-tfx" role="doc-biblioref">d</a>, also known as TFX)</span> is a platform to host end-to-end machine learning pipelines based on
+Tensorflow. TFX is designed to run on top of different platforms (Google Cloud via Vertex AI, Amazon AWS) and
+orchestration frameworks (Apache Airflow, Kubeflow and Apache Beam <span class="citation">(The Apache Software Foundation <a href="#ref-beam" role="doc-biblioref">2022</a><a href="#ref-beam" role="doc-biblioref">b</a>)</span>), supports distributed processing (with
+frameworks like Apache Spark), and allows for local model and data exploration using TensorBoard <span class="citation">(TensorFlow <a href="#ref-tensorboard" role="doc-biblioref">2022</a><a href="#ref-tensorboard" role="doc-biblioref">c</a>)</span> and
+Jupyter notebooks.  The TFX pipeline is highly modular and is structured in different components along
+the lines of those we discussed in Chapter <a href="design-code.html#design-code">5</a>, all tied together by dependencies represented as a DAG.
+The metadata required for experiment tracking are saved using the ML metadata library <span class="citation">(TensorFlow <a href="#ref-mlmd" role="doc-biblioref">2022</a><a href="#ref-mlmd" role="doc-biblioref">a</a>, also known as MLMD)</span>, along
+with monitoring information and the pipeline’s logs, in a data store that supports relational databases. All this
+functionality comes at the cost of complexity and lack of flexibility in certain areas: choosing whether to use TFX
+requires a careful evaluation of our use case before deciding whether to adopt it or not.</p>
+<p>Unlike Kubeflow (built around Kubernetes) or TFX (built around Tensorflow), MLflow <span class="citation">(Zaharia and The Linux Foundation <a href="#ref-mlflow" role="doc-biblioref">2022</a>)</span> is a library-agnostic
+platform written in Python that can be integrated with any machine learning library through lightweight APIs. The goal
+of MLflow is to support MLOps by providing four key features:</p>
+<ul>
+<li>a project packaging format built on Conda <span class="citation">(Anaconda <a href="#ref-conda" role="doc-biblioref">2022</a><a href="#ref-conda" role="doc-biblioref">b</a>)</span> and Docker <span class="citation">(Docker <a href="#ref-docker" role="doc-biblioref">2022</a><a href="#ref-docker" role="doc-biblioref">a</a>)</span> which guarantees reproducibility and which
+makes projects easy to share;
+</li>
+<li>an experiment tracking API to log parameters, code and results together with an interactive user interface to compare
+models and data across experiments;</li>
+<li>a model packaging format and a set of APIs for deploying models to target platforms such as Docker, Apache Spark and
+AWS Sagemaker; and</li>
+<li>a model registry with a graphical interface and a set of APIs to work collaboratively on models.
+</li>
+</ul>
+<p>
+As we mentioned earlier, we can implement machine learning pipelines using general-purpose open-source orchestrators
+like Airflow and Luigi <span class="citation">(Spotify <a href="#ref-luigi" role="doc-biblioref">2022</a><a href="#ref-luigi" role="doc-biblioref">a</a>)</span> or using more integrated tools such as Dagster <span class="citation">(Elementl <a href="#ref-dagster" role="doc-biblioref">2022</a>)</span> and Prefect 2.0 <span class="citation">(Prefect <a href="#ref-prefect" role="doc-biblioref">2022</a>)</span>.
+Both Dagster and Prefect 2.0 implement pipelines in Python as modules linked in a DAG, and they provide a web interface
+that makes it easy to visualise pipelines running in production, to monitor their progress and to troubleshoot them.
+Monitoring is outsourced to Prometheus in both Airflow and Luigi. Pachyderm, unlike Airflow and Luigi, supports
+unstructured data like videos and images as well as tabular data from data warehouses. Furthermore, it can trigger
+pipelines automatically based on data changes, version data of any type and scale resources automatically (since it is
+built on containers and runs on Kubernetes).
+</p>
+<p>
+We can implement experiment tracking using more lightweight tools than Kubeflow: two examples are MLflow Tracking and
+DVC (integrated with a CI/CD pipeline such as Gitlab’s or Jenkins), which we discussed in Section
+<a href="development-tools.html#exploration-experiment-tracking">10.1</a>. A related tool is CML <span class="citation">(Iterative <a href="#ref-cml" role="doc-biblioref">2022</a><a href="#ref-cml" role="doc-biblioref">a</a>)</span>, which is developed by the same authors as DVC:
+an open-source command-line tool that can be easily integrated into any CI/CD pipeline to add auto-generated reports
+with plots of model metrics in each pull request/merge request. In order to do that, CML monitors changes in the data
+and automates model training and evaluation as well as the comparison of ML experiments across project iterations.
+Neptune <span class="citation">(Neptune Labs <a href="#ref-neptune" role="doc-biblioref">2022</a>)</span> is also designed specifically for storing and tracking metadata across multiple experiments. It
+implements the practices we presented in Section <a href="design-code.html#model-pipeline">5.3.4</a>: in particular, saving model artefacts in a
+model registry along with references to the associated data, code, metrics and environment configurations.
+</p>
+<p>The other option we have is using managed cloud platforms such as Sagemaker and Vertex AI. Their strength is the deep
+integration with Amazon AWS and Google Cloud, respectively, which makes it straightforward to implement progressive
+delivery techniques, to centralise logging and monitoring, and to train and serve models using GPUs.
+AWS also offers integrations with Redshift <span class="citation">(Amazon <a href="#ref-redshift" role="doc-biblioref">2022</a><a href="#ref-redshift" role="doc-biblioref">a</a>)</span> and with Databricks to access data; Vertex AI does the same with
+BigQuery <span class="citation">(Google <a href="#ref-big-query" role="doc-biblioref">2022</a><a href="#ref-big-query" role="doc-biblioref">a</a>)</span>, and supports working with feature stores as well. Both platforms support Jupyter notebooks for
+interactive exploration, and both support pipelines: Sagemaker via a custom Python library, Vertex AI via Kubeflow and
+TFX.  In addition, Vertex AI allows us to develop machine learning models in Jupyter notebooks, to
+deploy models saved in object storage buckets, and to upload them to a dedicated model registry. In conclusion, both
+platforms are chasing each other’s features, and they are very comprehensive: but they can be confusing because of that.
+
+</p>
+<p>Finally, feature stores are increasing in popularity in MLOps for storing and cataloguing frequently used features and
+for enabling feature reuse across models, thus reducing coupling and duplication. They are available from open-source
+tools such as Feast <span class="citation">(Feast Authors <a href="#ref-feast" role="doc-biblioref">2022</a>)</span> and Hopsworks <span class="citation">(Hopsworks <a href="#ref-hopsworks" role="doc-biblioref">2022</a>)</span>, Vertex AI and Databricks.</p>
+</div>
+<div id="production-dashboard" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Dashboards, Visualisation and Reporting<a href="production-tools.html#production-dashboard" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>
+Data visualisation is an essential part of data science and machine learning: it helps explain complex data and
+makes them understandable by users and domain experts, allowing them to participate in the design and maintenance
+of the pipeline (Chapter <a href="design-code.html#design-code">5</a>). As in Section <a href="production-tools.html#production-software">11.2</a>, we can choose to implement it
+with a spectrum of solutions, from low-level libraries for data exploration to more comprehensive visualisation platforms
+that create interactive dashboards and data reports.</p>
+<p>The decade-old Matplotlib <span class="citation">(Hunter <a href="#ref-matplotlib" role="doc-biblioref">2022</a>)</span> library is the most widely adopted Python package for basic data visualisation,
+followed by its descendant Seaborn <span class="citation">(Waskom <a href="#ref-seaborn" role="doc-biblioref">2022</a>)</span>, which tries to tackle some of the complexity of Matplotlib while
+producing figures with a more modern look.</p>
+<p>At a higher level, we have Plotly <span class="citation">(Plotly <a href="#ref-plotly" role="doc-biblioref">2022</a><a href="#ref-plotly" role="doc-biblioref">c</a>)</span>, Bokeh <span class="citation">(Bokeh <a href="#ref-bokeh" role="doc-biblioref">2022</a>)</span> and Altair <span class="citation">(Altair <a href="#ref-altair" role="doc-biblioref">2022</a>)</span> for Python, and the ggplot2 package
+<span class="citation">(Wickham <a href="#ref-ggplot2" role="doc-biblioref">2022</a><a href="#ref-ggplot2" role="doc-biblioref">a</a>)</span> for R. These libraries have similar features and aesthetics, and they can create static, animated and
+interactive visualisation. Plotly, Bokeh and ggplot2 are programmatic; Altair uses the declarative JSON syntax of the
+Vega-Lite <span class="citation">(Satyanarayan et al. <a href="#ref-vega-lite" role="doc-biblioref">2022</a>)</span> language and a simple set of APIs to implement the “Grammar of Graphics” <span class="citation">(Wilkinson <a href="#ref-gog" role="doc-biblioref">2005</a>)</span>, which has
+inspired the design of ggplot2 as well. Ggplot2 has a Python port called Plotnine <span class="citation">(Kibirige <a href="#ref-plotnine" role="doc-biblioref">2022</a>)</span> and Altair has an R
+wrapper <span class="citation">(Lyttle, Jeppson, and Altair Developers <a href="#ref-r-altair" role="doc-biblioref">2022</a>)</span> based on the reticulate package <span class="citation">(Ushey, Allaire, and Tang <a href="#ref-reticulate" role="doc-biblioref">2022</a>)</span>.</p>
+<p>
+These packages are the foundation upon which more advanced web dashboards like Dash <span class="citation">(Plotly <a href="#ref-plotly-dash" role="doc-biblioref">2022</a><a href="#ref-plotly-dash" role="doc-biblioref">b</a>)</span>, Bokeh Server and
+Shiny <span class="citation">(Chang et al. <a href="#ref-shiny" role="doc-biblioref">2022</a>)</span> are built. Dash provides interfaces for Jupyter notebooks and for multiple languages such as Python, R
+and Julia, while Bokeh only supports Python. Both libraries are good starting points for creating dashboards, although
+Plotly has a faster learning curve. Shiny, on the other hand, is the de facto standard for creating web-based
+interactive visualisations in R due to its deep integration with RStudio and R Markdown. Other open-source options are
+Voilà <span class="citation">(Voilà Dashboards <a href="#ref-voila" role="doc-biblioref">2022</a>)</span>, Streamlit <span class="citation">(Streamlit <a href="#ref-streamlit" role="doc-biblioref">2022</a>)</span>, and Panel <span class="citation">(Holoviz <a href="#ref-panel" role="doc-biblioref">2022</a>)</span>. Voilà can turn Jupyter notebooks into standalone
+applications and dashboards, which is useful when generating quick data analysis reports. Streamlit and Panel build web
+dashboards that interact with data by composing widgets, tables and plots from Plotly, Bokeh and Altair, as well as
+viewable objects and controls. Panel has better support for Jupyter notebooks compared to Streamlit and Voilà.</p>
+<p>Applications for visual analytics and business intelligence like Tableau <span class="citation">(Tableau Software <a href="#ref-tableau" role="doc-biblioref">2022</a>)</span> and Microsoft PowerBI <span class="citation">(Microsoft <a href="#ref-powerbi" role="doc-biblioref">2022</a><a href="#ref-powerbi" role="doc-biblioref">e</a>)</span> are
+also suitable for creating dashboards, and are especially useful to management or domain experts who need to create
+their own dashboards but who may not be as familiar with programming. Tableau can execute Python code on the fly and
+display its outputs within Tableau visualisations via TabPy <span class="citation">(Tableau <a href="#ref-tab-py" role="doc-biblioref">2022</a>)</span>. PowerBI, on the other hand, does not yet have a
+complete integration with Python: it only allows reports to be placed within Jupyter notebooks but without
+a direct connection between the data in the notebook and the PowerBI report.
+</p>
+<p>
+Finally, we can leverage standard monitoring and reporting tools such as Prometheus <span class="citation">(Prometheus Authors and The Linux Foundation <a href="#ref-prometheus" role="doc-biblioref">2022</a>)</span> and Grafana <span class="citation">(GrafanaLabs <a href="#ref-grafana" role="doc-biblioref">2022</a>)</span>
+to display metrics related to data, features and models. We discussed in Section <a href="design-code.html#monitoring-pipeline">5.3.6</a> how
+important it is to monitor every part of the pipeline: this makes it likely that we are already using Prometheus and
+Grafana to monitor other things, and we may as well use them to track and compare data and models across environments in
+addition to other metrics. This approach is certainly robust: it uses highly-tested components. However, it requires a
+significant engineering effort to integrate the training and serving modules with Prometheus and to integrate the
+dashboards into the server-side infrastructure. We can build a similar setup with a more opinionated approach using the
+TFX validation module on Google Vertex AI, which implements training-serving skew detection <span class="citation">(TensorFlow <a href="#ref-tfx" role="doc-biblioref">2022</a><a href="#ref-tfx" role="doc-biblioref">d</a>)</span>, or using Amazon
+Sagemaker with its Monitor <span class="citation">(Amazon <a href="#ref-sagemaker-monitor" role="doc-biblioref">2022</a><a href="#ref-sagemaker-monitor" role="doc-biblioref">b</a>)</span>.
+
+</p>
+<!-- vim: set synmaxcol=600 textwidth=120 colorcolumn=120 spell wrap number: -->
+
+</div>
+</div>
+
+
+
+</div>
+<h3>References</h3>
+<div id="refs" class="references hanging-indent">
+<div id="ref-altair">
+<p>Altair. 2022. <em>Altair: Declarative Visualization in Python</em>. <a href="https://altair-viz.github.io/">https://altair-viz.github.io/</a>.</p>
+</div>
+<div id="ref-redshift">
+<p>Amazon. 2022a. <em>Amazon Redshift Documentation</em>. <a href="https://docs.aws.amazon.com/redshift/index.html">https://docs.aws.amazon.com/redshift/index.html</a>.</p>
+</div>
+<div id="ref-sagemaker-monitor">
+<p>Amazon. 2022b. <em>Amazon SageMaker Examples</em>. <a href="https://sagemaker-examples.readthedocs.io/en/latest/sagemaker_model_monitor/index.html">https://sagemaker-examples.readthedocs.io/en/latest/sagemaker_model_monitor/index.html</a>.</p>
+</div>
+<div id="ref-sagemaker">
+<p>Amazon. 2022d. <em>Machine Learning: Amazon Sagemaker</em>. <a href="https://aws.amazon.com/sagemaker/">https://aws.amazon.com/sagemaker/</a>.</p>
+</div>
+<div id="ref-eks">
+<p>Amazon Web Services. 2022a. <em>Amazon Elastic Kubernetes Service Documentation</em>. <a href="https://docs.aws.amazon.com/eks">https://docs.aws.amazon.com/eks</a>.</p>
+</div>
+<div id="ref-conda">
+<p>Anaconda. 2022b. <em>Package, Dependency and Environment Management for Any Language</em>. <a href="https://docs.conda.io">https://docs.conda.io</a>.</p>
+</div>
+<div id="ref-ansible">
+<p>Ansible Project. 2022. <em>Ansible Documentation</em>. <a href="https://docs.ansible.com/ansible/latest/index.html">https://docs.ansible.com/ansible/latest/index.html</a>.</p>
+</div>
+<div id="ref-argo-workflow">
+<p>Argo Project. 2022. <em>Argo Workflow Documentation</em>. <a href="https://argoproj.github.io/argo-workflows">https://argoproj.github.io/argo-workflows</a>.</p>
+</div>
+<div id="ref-bentoml">
+<p>BentoML. 2022. <em>Unified Model Serving Framework</em>. <a href="https://docs.bentoml.org/en/latest/">https://docs.bentoml.org/en/latest/</a>.</p>
+</div>
+<div id="ref-bokeh">
+<p>Bokeh. 2022. <em>Bokeh Documentation</em>. <a href="https://docs.bokeh.org/en/latest/">https://docs.bokeh.org/en/latest/</a>.</p>
+</div>
+<div id="ref-cloud-init">
+<p>Canonical. 2022a. <em>Cloud-Init Documentation</em>. <a href="https://cloudinit.readthedocs.io/en/latest">https://cloudinit.readthedocs.io/en/latest</a>.</p>
+</div>
+<div id="ref-shiny">
+<p>Chang, W., J. Cheng, J. J. Allaire, C. Sievert, B. Schloerke, Y. Xie, J. Allen, J. McPherson, A. Dipert, and B. Borges. 2022. <em>shiny: Web Application Framework for R</em>. <a href="https://cran.r-project.org/web/packages/shiny">https://cran.r-project.org/web/packages/shiny</a>.</p>
+</div>
+<div id="ref-databricks">
+<p>Databricks. 2022. <em>Databricks Documentation</em>. <a href="https://docs.databricks.com/applications/machine-learning/index.html">https://docs.databricks.com/applications/machine-learning/index.html</a>.</p>
+</div>
+<div id="ref-docker">
+<p>Docker. 2022a. <em>Docker</em>. <a href="https://www.docker.com/">https://www.docker.com/</a>.</p>
+</div>
+<div id="ref-elastic">
+<p>Elasticsearch. 2022. <em>Free and Open Search: The Creators of Elasticsearch, ELK &amp; Kibana</em>. <a href="https://www.elastic.co/">https://www.elastic.co/</a>.</p>
+</div>
+<div id="ref-dagster">
+<p>Elementl. 2022. <em>Dagster Documentation</em>. <a href="https://docs.dagster.io">https://docs.dagster.io</a>.</p>
+</div>
+<div id="ref-feast">
+<p>Feast Authors. 2022. <em>Feast Documentation</em>. <a href="https://docs.feast.dev/">https://docs.feast.dev/</a>.</p>
+</div>
+<div id="ref-gitlab-mlops">
+<p>GitLab. 2022c. <em>Group Direction: MLOps</em>. <a href="https://about.gitlab.com/direction/modelops/mlops/">https://about.gitlab.com/direction/modelops/mlops/</a>.</p>
+</div>
+<div id="ref-big-query">
+<p>Google. 2022a. <em>BigQuery Documentation</em>. <a href="https://cloud.google.com/bigquery/docs">https://cloud.google.com/bigquery/docs</a>.</p>
+</div>
+<div id="ref-gke">
+<p>Google. 2022c. <em>Google Kubernetes Engine</em>. <a href="https://cloud.google.com/kubernetes-engine/docs">https://cloud.google.com/kubernetes-engine/docs</a>.</p>
+</div>
+<div id="ref-vertex">
+<p>Google. 2022f. <em>Vertex AI Documentation</em>. <a href="https://cloud.google.com/vertex-ai/docs">https://cloud.google.com/vertex-ai/docs</a>.</p>
+</div>
+<div id="ref-grafana">
+<p>GrafanaLabs. 2022. <em>Grafana: The Open Observability Platform</em>. <a href="https://grafana.com/">https://grafana.com/</a>.</p>
+</div>
+<div id="ref-loki">
+<p>Grafana Labs. 2022. <em>Grafana Loki Documentation</em>. <a href="https://grafana.com/docs/loki/latest/">https://grafana.com/docs/loki/latest/</a>.</p>
+</div>
+<div id="ref-packer">
+<p>HashiCorp. 2022a. <em>Packer Documentation</em>. <a href="https://www.packer.io/docs">https://www.packer.io/docs</a>.</p>
+</div>
+<div id="ref-terraform">
+<p>HashiCorp. 2022b. <em>Terraform Documentation</em>. <a href="https://www.terraform.io/docs">https://www.terraform.io/docs</a>.</p>
+</div>
+<div id="ref-terraform-registry">
+<p>HashiCorp. 2022c. <em>Terraform Registry</em>. <a href="https://registry.terraform.io">https://registry.terraform.io</a>.</p>
+</div>
+<div id="ref-vagrant">
+<p>HashiCorp. 2022d. <em>Vagrant Documentation</em>. <a href="https://www.vagrantup.com/docs">https://www.vagrantup.com/docs</a>.</p>
+</div>
+<div id="ref-panel">
+<p>Holoviz. 2022. <em>Panel User Guide</em>. <a href="https://panel.holoviz.org/user_guide/index.html">https://panel.holoviz.org/user_guide/index.html</a>.</p>
+</div>
+<div id="ref-hopsworks">
+<p>Hopsworks. 2022. <em>Hopsworks Documentation</em>. <a href="https://docs.hopsworks.a">https://docs.hopsworks.a</a>.</p>
+</div>
+<div id="ref-matplotlib">
+<p>Hunter, J. D. 2022. <em>Matplotlib API Reference</em>. <a href="https://matplotlib.org/stable/api/index">https://matplotlib.org/stable/api/index</a>.</p>
+</div>
+<div id="ref-cml">
+<p>Iterative. 2022a. <em>CML Documentation</em>. <a href="https://cml.dev/doc">https://cml.dev/doc</a>.</p>
+</div>
+<div id="ref-mlem">
+<p>Iterative. 2022d. <em>MLEM Documentation</em>. <a href="https://mlem.ai/doc">https://mlem.ai/doc</a>.</p>
+</div>
+<div id="ref-plotnine">
+<p>Kibirige, H. 2022. <em>Plotnine API Reference</em>. <a href="https://plotnine.readthedocs.io/en/stable/api.html">https://plotnine.readthedocs.io/en/stable/api.html</a>.</p>
+</div>
+<div id="ref-r-altair">
+<p>Lyttle, I., H. Jeppson, and Altair Developers. 2022. <em>altair: Interface to Altair</em>. <a href="https://cran.r-project.org/web/packages/altair">https://cran.r-project.org/web/packages/altair</a>.</p>
+</div>
+<div id="ref-aks">
+<p>Microsoft. 2022b. <em>Azure Kubernetes Service (AKS)</em>. <a href="https://docs.microsoft.com/en-gb/azure/aks">https://docs.microsoft.com/en-gb/azure/aks</a>.</p>
+</div>
+<div id="ref-powerbi">
+<p>Microsoft. 2022e. <em>Data Visualization: Microsoft PowerBI</em>. <a href="https://powerbi.microsoft.com/">https://powerbi.microsoft.com/</a>.</p>
+</div>
+<div id="ref-neptune">
+<p>Neptune Labs. 2022. <em>Neptune Documentation</em>. <a href="https://docs.neptune.ai/">https://docs.neptune.ai/</a>.</p>
+</div>
+<div id="ref-pytorch">
+<p>Paszke, A., S. Gross, F. Massa, A. Lerer, J. Bradbury, G. Chanan, T. Killeen, et al. 2019. “PyTorch: An Imperative Style, High-Performance Deep Learning Library.” In <em>Advances in Neural Information Processing Systems (Nips)</em>, 32:8026–37.</p>
+</div>
+<div id="ref-plotly-dash">
+<p>Plotly. 2022b. <em>Dash Python User Guide</em>. <a href="https://dash.plotly.com/">https://dash.plotly.com/</a>.</p>
+</div>
+<div id="ref-plotly">
+<p>Plotly. 2022c. <em>Plotly Open Source Graphing Library for Python</em>. <a href="https://plotly.com/python/">https://plotly.com/python/</a>.</p>
+</div>
+<div id="ref-polyaxon">
+<p>Polyaxon. 2022. <em>Polyaxon Documentation</em>. <a href="https://github.com/polyaxon/polyaxon">https://github.com/polyaxon/polyaxon</a>.</p>
+</div>
+<div id="ref-typhoon">
+<p>Poseidon Laboratories. 2022. <em>Typhoon Documentation</em>. <a href="https://typhoon.psdn.io/\#documentation">https://typhoon.psdn.io/\#documentation</a>.</p>
+</div>
+<div id="ref-prefect">
+<p>Prefect. 2022. <em>Prefect 2.0 Documentation</em>. <a href="https://docs.prefect.io">https://docs.prefect.io</a>.</p>
+</div>
+<div id="ref-chef">
+<p>Progress Software. 2022. <em>Chef Documentation</em>. <a href="https://docs.chef.io">https://docs.chef.io</a>.</p>
+</div>
+<div id="ref-prometheus">
+<p>Prometheus Authors, and The Linux Foundation. 2022. <em>Prometheus: Monitoring System and Time Series Databases</em>. <a href="https://prometheus.io/">https://prometheus.io/</a>.</p>
+</div>
+<div id="ref-puppet">
+<p>Puppet. 2022. <em>Puppet Documentation</em>. <a href="https://puppet.com/docs">https://puppet.com/docs</a>.</p>
+</div>
+<div id="ref-vega-lite">
+<p>Satyanarayan, A., D. Moritz, K. Wongsuphasawat, and J. Heer. 2022. <em>A High-Level Grammar of Interactive Graphics</em>. <a href="https://vega.github.io/vega-lite/docs/">https://vega.github.io/vega-lite/docs/</a>.</p>
+</div>
+<div id="ref-seldon-core">
+<p>Seldon Technologies. 2022. <em>Seldon Core</em>. <a href="https://docs.seldon.io/projects/seldon-core/en/latest/">https://docs.seldon.io/projects/seldon-core/en/latest/</a>.</p>
+</div>
+<div id="ref-kfd">
+<p>SIGHUP. 2022. <em>Kubernetes Fury Distribution</em>. <a href="https://docs.kubernetesfury.com/docs/distribution/">https://docs.kubernetesfury.com/docs/distribution/</a>.</p>
+</div>
+<div id="ref-luigi">
+<p>Spotify. 2022a. <em>Luigi Documentation</em>. <a href="https://luigi.readthedocs.io/en/stable/">https://luigi.readthedocs.io/en/stable/</a>.</p>
+</div>
+<div id="ref-streamlit">
+<p>Streamlit. 2022. <em>Streamlit Documentation</em>. <a href="https://docs.streamlit.io/">https://docs.streamlit.io/</a>.</p>
+</div>
+<div id="ref-tab-py">
+<p>Tableau. 2022. <em>Execute Python Code on The Fly and Display Results in Tableau Visualizations</em>. <a href="https://tableau.github.io/TabPy">https://tableau.github.io/TabPy</a>.</p>
+</div>
+<div id="ref-tableau">
+<p>Tableau Software. 2022. <em>Tableau</em>. <a href="https://www.tableau.com/">https://www.tableau.com/</a>.</p>
+</div>
+<div id="ref-tensorflow">
+<p>TensorFlow. 2021a. <em>TensorFlow</em>. <a href="https://www.tensorflow.org/overview/">https://www.tensorflow.org/overview/</a>.</p>
+</div>
+<div id="ref-mlmd">
+<p>TensorFlow. 2022a. <em>ML Metadata</em>. <a href="https://www.tensorflow.org/tfx/guide/mlmd">https://www.tensorflow.org/tfx/guide/mlmd</a>.</p>
+</div>
+<div id="ref-tf-serving">
+<p>TensorFlow. 2022b. <em>Serving Models</em>. <a href="https://www.tensorflow.org/tfx/guide/serving">https://www.tensorflow.org/tfx/guide/serving</a>.</p>
+</div>
+<div id="ref-tensorboard">
+<p>TensorFlow. 2022c. <em>TensorBoard: TensorFlow’s Visualization Toolkit</em>. <a href="https://www.tensorflow.org/tensorboard">https://www.tensorflow.org/tensorboard</a>.</p>
+</div>
+<div id="ref-tfx">
+<p>TensorFlow. 2022d. <em>The TFX User Guide</em>. <a href="https://www.tensorflow.org/tfx/guide">https://www.tensorflow.org/tfx/guide</a>.</p>
+</div>
+<div id="ref-beam">
+<p>The Apache Software Foundation. 2022b. <em>Apache Beam Documentation</em>. <a href="https://beam.apache.org/documentation/">https://beam.apache.org/documentation/</a>.</p>
+</div>
+<div id="ref-kserve">
+<p>The KServe Authors. 2022. <em>KServe Control Plane</em>. <a href="https://kserve.github.io/website/latest/modelserving/control_plane">https://kserve.github.io/website/latest/modelserving/control_plane</a>.</p>
+</div>
+<div id="ref-kubeflow">
+<p>The Kubeflow Authors. 2022. <em>All of Kubeflow documentation</em>. <a href="https://www.kubeflow.org/docs/">https://www.kubeflow.org/docs/</a>.</p>
+</div>
+<div id="ref-kubernetes">
+<p>The Kubernetes Authors. 2022a. <em>Kubernetes</em>. <a href="https://kubernetes.io/">https://kubernetes.io/</a>.</p>
+</div>
+<div id="ref-reticulate">
+<p>Ushey, K., JJ. Allaire, and Y. Tang. 2022. <em>reticulate: Interface to Python</em>. <a href="https://cran.r-project.org/web/packages/reticulate">https://cran.r-project.org/web/packages/reticulate</a>.</p>
+</div>
+<div id="ref-vmware-vsphere">
+<p>VmWare. 2022. <em>VMware vSphere Documentation</em>. <a href="https://docs.vmware.com/en/VMware-vSphere/index.html">https://docs.vmware.com/en/VMware-vSphere/index.html</a>.</p>
+</div>
+<div id="ref-voila">
+<p>Voilà Dashboards. 2022. <em>From Notebooks to Standalone Web Applications and Dashboards</em>. <a href="https://voila.readthedocs.io/en/stable">https://voila.readthedocs.io/en/stable</a>.</p>
+</div>
+<div id="ref-seaborn">
+<p>Waskom, M. 2022. <em>Seaborn: Statistical Data Visualization</em>. <a href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a>.</p>
+</div>
+<div id="ref-ggplot2">
+<p>Wickham, H. 2022a. <em>ggplot2: Elegant Graphics for Data Analysis</em>. <a href="https://cran.r-project.org/web/packages/ggplot2">https://cran.r-project.org/web/packages/ggplot2</a>.</p>
+</div>
+<div id="ref-gog">
+<p>Wilkinson, L. 2005. <em>The Grammar of Graphics</em>. 2nd ed. Springer.</p>
+</div>
+<div id="ref-mlflow">
+<p>Zaharia, M., and The Linux Foundation. 2022. <em>MLflow Documentation</em>. <a href="https://www.mlflow.org/docs/latest/index.html">https://www.mlflow.org/docs/latest/index.html</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="development-tools.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="nlp.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
