@@ -7,37 +7,9 @@
    viewBox="0 0 150.52957 115.04521"
    version="1.1"
    id="svg14453"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
-   sodipodi:docname="openapi.svg"
-   inkscape:export-filename="openapi.pdf"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview14455"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm"
-     showgrid="false"
-     inkscape:zoom="8.0493728"
-     inkscape:cx="118.3322"
-     inkscape:cy="389.65769"
-     inkscape:window-width="2560"
-     inkscape:window-height="1414"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
-     showguides="true" />
   <defs
      id="defs14450">
     <clipPath
@@ -2148,8 +2120,6 @@
     </clipPath>
   </defs>
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-25.708633,-10.560452)">
     <g
@@ -2257,7 +2227,6 @@
        y="17.115078"><tspan
          x="32.476002 34.586578 37.04776 39.15834"
          y="17.115078"
-         sodipodi:role="line"
          id="tspan2830"
          style="stroke-width:0.22602">POST</tspan></text>
     <text
@@ -2268,7 +2237,6 @@
        y="16.889046"><tspan
          x="32.476002 34.586578 37.04776 39.15834"
          y="16.889046"
-         sodipodi:role="line"
          id="tspan2836"
          style="stroke-width:0.22602">POST</tspan></text>
     <text
@@ -2279,7 +2247,6 @@
        y="16.889046"><tspan
          x="48.084648 50.262039 52.43943 54.616821 56.794212 58.971603 61.148994 63.326378 65.503769"
          y="16.889046"
-         sodipodi:role="line"
          id="tspan2842"
          style="stroke-width:0.22602">/classify</tspan></text>
     <text
@@ -2290,7 +2257,6 @@
        y="16.889046"><tspan
          x="69.941521 70.757774 72.392036 73.208282 74.842545 75.820992 77.455254 79.089516 80.558647 82.192909 84.152725 86.112556 86.92881 87.907249"
          y="16.889046"
-         sodipodi:role="line"
          id="tspan2848"
          style="stroke-width:0.22602">InferenceAPI( </tspan></text>
     <text
@@ -2311,7 +2277,6 @@
        y="16.889046"><tspan
          x="92.477692 93.946831 95.906662 98.192032 100.31405"
          y="16.889046"
-         sodipodi:role="line"
          id="tspan2860"
          style="stroke-width:0.22602">JSON)</tspan></text>
     <path
@@ -2334,7 +2299,6 @@
        y="27.059971"><tspan
          x="154.33321 156.61845 158.37843 160.31245 162.07242 163.8324"
          y="27.059971"
-         sodipodi:role="line"
          id="tspan3052"
          style="stroke-width:0.22602">Cancel</tspan></text>
     <text
@@ -2345,7 +2309,6 @@
        y="37.908943"><tspan
          x="31.133121 33.418369 35.178345 36.057381 37.817356 39.577332 40.631039 42.391014 45.026863 46.786842 47.665878 49.425858 50.479561"
          y="37.908943"
-         sodipodi:role="line"
          id="tspan3066"
          style="stroke-width:0.22602">No parameters</tspan></text>
     <text
@@ -2356,7 +2319,6 @@
        y="49.888023"><tspan
          x="31.133121 33.418369 35.178345 37.111088 39.043835 40.80381 42.563789 43.617493 44.496529 46.429276 48.362022 50.294769"
          y="49.888023"
-         sodipodi:role="line"
          id="tspan3072"
          style="stroke-width:0.22602">Request body</tspan></text>
     <path
@@ -2391,7 +2353,6 @@
        y="49.888023"><tspan
          x="121.08923 122.8492 124.78195 126.71469 127.59373 128.47278 130.23276 131.99272 133.04643 133.92548 135.85822 137.79095 138.67 140.60275 142.36272 143.41643 145.17641 146.2301 147.28383 149.04379 150.09749 151.32904 153.08902 154.849"
          y="49.888023"
-         sodipodi:role="line"
          id="tspan3286"
          style="stroke-width:0.22602">application/octet-stream</tspan></text>
     <path
@@ -2414,7 +2375,6 @@
        y="63.67527"><tspan
          x="52.605057 54.113609"
          y="63.67527"
-         sodipodi:role="line"
          id="tspan3312"
          style="stroke-width:0.22602">no file selected</tspan></text>
     <text
@@ -2425,7 +2385,6 @@
        y="63.67527"><tspan
          x="35.427509 37.386292 38.89484 40.403393 41.911942 43.268066 44.776611 45.530075 47.186714 47.789375 48.392036"
          y="63.67527"
-         sodipodi:role="line"
          id="tspan3359"
          style="stroke-width:0.22602">Choose File</tspan></text>
     <path
@@ -2454,7 +2413,6 @@
        y="82.434959"><tspan
          x="94.679176 96.789757 98.549736 100.30971 102.06969 104.00244 105.05614"
          y="82.434959"
-         sodipodi:role="line"
          id="tspan3543"
          style="stroke-width:0.22602">Execute</tspan></text>
     <text
@@ -2465,7 +2423,6 @@
        y="96.674248"><tspan
          x="31.133121 33.418369 35.178345 36.93832 38.87233 40.806343 42.740356 44.500328 46.260307"
          y="96.674248"
-         sodipodi:role="line"
          id="tspan3557"
          style="stroke-width:0.22602">Responses</tspan></text>
     <text
@@ -2476,7 +2433,6 @@
        y="111.36556"><tspan
          x="31.133121 33.418369 35.352379 37.286392"
          y="111.36556"
-         sodipodi:role="line"
          id="tspan3563"
          style="stroke-width:0.22602">Code</tspan></text>
     <text
@@ -2487,7 +2443,6 @@
        y="111.13955"><tspan
          x="50.118835 52.077614 53.586166 55.094719 56.603264 57.658875 58.412338 60.06897 60.972153 61.725616 63.382256"
          y="111.13955"
-         sodipodi:role="line"
          id="tspan3569"
          style="stroke-width:0.22602">Description</tspan></text>
     <text
@@ -2498,7 +2453,6 @@
        y="111.36556"><tspan
          x="157.70453 159.63728 160.51631 162.44907 164.20778"
          y="111.36556"
-         sodipodi:role="line"
          id="tspan3575"
          style="stroke-width:0.22602">Links</tspan></text>
     <text
@@ -2509,7 +2463,6 @@
        y="120.18037"><tspan
          x="31.133121 32.893097 34.653072"
          y="120.18037"
-         sodipodi:role="line"
          id="tspan3581"
          style="stroke-width:0.22602">200</tspan></text>
     <text
@@ -2520,7 +2473,6 @@
        y="120.24815"><tspan
          x="50.118835 52.530922 54.542328 56.350487 58.158646 60.170052 61.978218 63.786377 64.790993 66.802391 67.605942 68.610558 71.22226 73.233665 75.041832 77.05323 79.064629 81.076042 82.884201"
          y="120.24815"
-         sodipodi:role="line"
          id="tspan3587"
          style="stroke-width:0.22602">Successful Response</tspan></text>
     <text
@@ -2531,7 +2483,6 @@
        y="120.18037"><tspan
          x="157.70453 159.98979 161.74976 162.6288 163.33189 164.035 165.79498 167.37712"
          y="120.18037"
-         sodipodi:role="line"
          id="tspan3593"
          style="stroke-width:0.22602">No links</tspan></text>
     <text
@@ -2542,7 +2493,6 @@
        y="27.059971"><tspan
          x="31.133121 33.243702 35.003677 36.235214 37.99519 40.808876 42.568848 43.622559 45.38253 46.614067"
          y="27.059971"
-         sodipodi:role="line"
          id="tspan3619"
          style="stroke-width:0.22602">Parameters</tspan></text>
     <path
@@ -2559,7 +2509,6 @@
        y="48.531906"><tspan
          x="53.184891 54.064568 55.321686 56.703125 58.084564 58.713348 59.593025 60.850143"
          y="48.531906"
-         sodipodi:role="line"
          id="tspan3627"
          style="stroke-width:0.22602">required</tspan></text>
   </g>
