@@ -7,33 +7,9 @@
    viewBox="0 0 150.52957 115.04521"
    version="1.1"
    id="svg14453"
-   sodipodi:docname="openapi.svg"
-   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview560"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm"
-     showgrid="false"
-     inkscape:zoom="0.92605934"
-     inkscape:cx="351.48936"
-     inkscape:cy="121.4825"
-     inkscape:window-width="1366"
-     inkscape:window-height="742"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg14453" />
   <defs
      id="defs14450">
     <clipPath
@@ -287,14 +263,11 @@
        style="stroke-width:0.22602">POST</tspan></text>
   <text
      xml:space="preserve"
-     style="font-variant:normal;font-weight:bold;font-size:3.61633px;font-family:Menlo;-inkscape-font-specification:Menlo-Bold;writing-mode:lr-tb;fill:#3b4151;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.22602"
+     style="font-variant:normal;font-weight:bold;font-size:3.61633px;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Bold';writing-mode:lr-tb;fill:#3b4151;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.22602;font-style:normal;font-stretch:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
      id="text2844"
      x="22.376015"
      y="6.3285937"><tspan
-       x="22.376015 24.553406 26.730797 28.908188 31.085579 33.26297 35.440361 37.617744 39.795135"
-       y="6.3285937"
-       id="tspan2842"
-       style="stroke-width:0.22602">/classify</tspan></text>
+       id="tspan637">/classify</tspan></text>
   <text
      xml:space="preserve"
      style="font-variant:normal;font-weight:normal;font-size:2.93827px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#3b4151;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.22602"
