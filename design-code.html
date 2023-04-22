@@ -10,15 +10,15 @@
 
   <meta property="og:title" content="Chapter 5 Designing and Structuring Pipelines | The Pragmatic Programmer for Machine Learning" />
   <meta property="og:type" content="book" />
-  
+
   <meta property="og:description" content="…" />
-  
+
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 5 Designing and Structuring Pipelines | The Pragmatic Programmer for Machine Learning" />
-  
+
   <meta name="twitter:description" content="…" />
-  
+
 
 <meta name="author" content="Marco Scutari, Mauro Malvestio" />
 
@@ -28,8 +28,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
+
+
 <link rel="prev" href="algorithms.html"/>
 <link rel="next" href="writing-code.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -371,7 +371,7 @@ our source code and because changes in the data may change the behaviour of the 
 data</em> to ensure that their characteristics do not change over time (Section <a href="design-code.html#data-debt">5.2.1</a>). After all, if the data
 change, our models may no longer be fit for purpose and we may have to retrain them to retain suitable levels of
 performance. In the case of offline data, this means that <em>data should be versioned along with the code</em> and that
-changes in either of them should trigger testing by continuous integration tools. 
+changes in either of them should trigger testing by continuous integration tools.
 In the case of online data, we should also implement a <em>real-time monitoring and logging</em> of the characteristics of new
 data and of the performance of the deployed models (Section <a href="design-code.html#monitoring-pipeline">5.3.6</a>). Once we are confident that the
 data are as we expect them to be, we can use them to test that our software (the implementation) is behaving correctly
@@ -412,7 +412,7 @@ latent complexity that makes the software more difficult to evolve over time. Te
 results faster by trading quality for speed but, as with borrowed money, we must eventually pay it off with (compound)
 interest. It is unavoidable when tight deadlines reduce the time spent on analysis and design <span class="citation">(Evans <a href="#ref-domain-driven" role="doc-biblioref">2003</a>)</span>, leading
 to solutions that are suboptimal in terms of functionality, code quality or technical implementation. Establishing and
-following the practices we advocate in Part <a href="#part:practices"><strong>??</strong></a> of this book is a good way of keeping it in check and
+following the practices we advocate in Part <a href="design-code.html#"><strong>2</strong></a> of this book is a good way of keeping it in check and
 of paying it off quickly enough to reduce it over time.</p>
 <p>Machine learning models and the underlying training, testing and serving software infrastructure, which we will
 introduce in Section <a href="design-code.html#processing-pipeline">5.3</a> as a <em>machine learning pipeline</em>, combine all the complexities of
